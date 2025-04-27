@@ -60,10 +60,7 @@ export const Missions = () => {
     return (
       <div className="container">
         <div className="missions-card">
-          <div className="missions-header">
-            <h2>Available Missions</h2>
-            <div className="loading-skeleton" style={{ width: '100%', height: '200px' }} />
-          </div>
+          <div className="loading-skeleton" style={{ width: '100%', height: '200px' }} />
         </div>
       </div>
     );
@@ -86,10 +83,7 @@ export const Missions = () => {
     return (
       <div className="container">
         <div className="missions-card">
-          <div className="missions-header">
-            <h2>Available Missions</h2>
-            <p style={{ textAlign: 'center', color: '#86868B' }}>No missions available at the moment</p>
-          </div>
+          <p style={{ textAlign: 'center', color: '#86868B' }}>No missions available at the moment</p>
         </div>
       </div>
     );
@@ -105,14 +99,12 @@ export const Missions = () => {
   return (
     <div className="container">
       <div className="missions-card">
-        <div className="missions-header">
-          <h2>Available Missions</h2>
-        </div>
         <div className="missions-list">
           {priority1Missions.map((mission) => (
             <div key={mission.id} className="mission-item" data-priority={mission.priority}>
               <div className="mission-image">
                 <img src={mission.imgUrl} alt={mission.name} />
+                <span className="category-badge">{mission.category || 'General'}</span>
               </div>
               <div className="mission-content">
                 <h3>{mission.name}</h3>
@@ -161,6 +153,7 @@ export const Missions = () => {
             <div key={mission.id} className="mission-item" data-priority={mission.priority}>
               <div className="mission-image">
                 <img src={mission.imgUrl} alt={mission.name} />
+                <span className="category-badge">{mission.category || 'General'}</span>
               </div>
               <div className="mission-content">
                 <h3>{mission.name}</h3>
