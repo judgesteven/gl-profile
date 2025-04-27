@@ -83,26 +83,40 @@ export const Profile = () => {
               alt={player.name}
               className="profile-avatar"
             />
-            <div className="level-badge">
-              {player.level.ordinal}
+            <div className="level-badge" title={`75% to Level ${player.level.ordinal + 1}`}>
+              <svg className="level-badge-ring" viewBox="0 0 36 36">
+                <path
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke="#8A2BE2"
+                  strokeWidth="2"
+                  strokeDasharray="75, 100"
+                />
+              </svg>
+              <span className="level-number">{player.level.ordinal}</span>
             </div>
           </div>
           
-          <h1 className="profile-name">{player.name}</h1>
-          
-          {team && (
-            <div className="team-name">
-              {team.name}
-            </div>
-          )}
+          <div className="profile-info">
+            <h1 className="profile-name">{player.name}</h1>
+            
+            {team && (
+              <div className="team-name">
+                <span>{team.name}</span>
+                <img src={team.imgUrl} alt={team.name} className="team-logo" />
+              </div>
+            )}
 
-          <div className="badges-container">
-            <span className="points-badge">
-              {player.points} Points
-            </span>
-            <span className="credits-badge">
-              {player.credits} Credits
-            </span>
+            <div className="badges-container">
+              <span className="points-badge">
+                {player.points} Points
+              </span>
+              <span className="credits-badge">
+                {player.credits} Credits
+              </span>
+            </div>
           </div>
         </div>
       </div>
