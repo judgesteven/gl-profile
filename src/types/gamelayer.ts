@@ -6,6 +6,46 @@ export interface Level {
   ordinal: number;
 }
 
+export interface Event {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface Mission {
+  id: string;
+  name: string;
+  description: string;
+  imgUrl: string;
+  points: number;
+  credits: number;
+  isAvailable: boolean;
+  category: string;
+  tags: string[];
+  createdOn: string;
+  priority: number;
+  timeToComplete: number;
+  timeToRestart: number;
+  objective: Event;
+  reward?: {
+    points: number;
+    credits: number;
+  };
+  active?: {
+    to: string;
+  };
+}
+
+export interface MissionResponse {
+  player: {
+    id: string;
+    name: string;
+  };
+  missions: {
+    [key: string]: Mission;
+  };
+}
+
 export interface Player {
   tags: string[];
   category: string;
